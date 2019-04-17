@@ -1,7 +1,9 @@
 # Question Bank
-This is a simple desktop application that allows users to upload a test bank and then the app will display questions to the user randomly. The user can answer the question and the answer will be compared the actual answer and feedback is provided.
+This is a simple desktop application that allows users to upload a test bank and then the app will display questions to the user randomly. The user can answer the question and the answer will be compared the actual answer and feedback is provided.This comes handly when studying for exams and tests when you need someone to ask you random questions from the test bank.
 
-This comes handly when studying for exams and tests when you need someone to ask you random questions from the test bank.
+The application is written in Go but it uses electron bindings using `gotron` project. You can checkout that project to learn more about it and how to generate executable. This also means you will need to have Node.js installed on your machine.
+
+https://github.com/Equanox/gotron
 
 ### Build and Run
 * Make sure version of go is >= 1.11
@@ -12,6 +14,7 @@ After cloning the repository
 # Build
 cd question-bank
 go build
+chmod -R 777 .gotron
 
 # Run
 ./QuestionBank
