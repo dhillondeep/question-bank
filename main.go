@@ -2,12 +2,13 @@ package main
 
 import (
 	"encoding/json"
-	"github.com/Equanox/gotron"
 	"log"
 	"math/rand"
 	"strconv"
 	"strings"
 	"time"
+
+	"github.com/Equanox/gotron"
 )
 
 // FileRead message type
@@ -20,7 +21,7 @@ type FileReadEvent struct {
 type CheckAnswerEvent struct {
 	*gotron.Event
 	Answer string `json:"answer"`
-	ID   string `json:"id"`
+	ID     string `json:"id"`
 }
 
 func main() {
@@ -73,7 +74,6 @@ func main() {
 		SendFeedbackEvent("", len(fileHandler.answeredQuestions),
 			fileHandler.numCorrect, fileHandler.numTotal, fileHandler.numUsed)
 	})
-
 
 	window.On(&gotron.Event{Event: "reset_questions"}, func(bin []byte) {
 		fileHandler.ResetEverything()
