@@ -11,7 +11,7 @@ import (
 	"github.com/Equanox/gotron"
 )
 
-// FileRead message type
+// FileReadEvent type
 type FileReadEvent struct {
 	*gotron.Event
 	Data string `json:"data"`

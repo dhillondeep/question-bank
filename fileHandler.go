@@ -6,6 +6,7 @@ import (
 	"strings"
 )
 
+// FileHandler structure holds question data
 type FileHandler struct {
 	data              string
 	allQuestions      map[int]string
@@ -13,10 +14,11 @@ type FileHandler struct {
 	usedQuestions     map[int]bool
 	answeredQuestions map[int]bool
 	numCorrect        int
-	numTotal int
-	numUsed int
+	numTotal          int
+	numUsed           int
 }
 
+// ResetEverything clears question bank and resets data
 func (fileHandler *FileHandler) ResetEverything() {
 	fileHandler.allQuestions = map[int]string{}
 	fileHandler.allAnswers = map[int]string{}
@@ -59,17 +61,19 @@ func (fileHandler *FileHandler) ResetEverything() {
 	fileHandler.numUsed = 0
 }
 
+// ParseFileData parses question bank and creates question and answers
 func (fileHandler *FileHandler) ParseFileData(data string) {
 	fileHandler.data = data
 	fileHandler.ResetEverything()
 }
 
+// RandomQuestion provides a random questions
 func (fileHandler *FileHandler) RandomQuestion() (int, string) {
 	if len(fileHandler.allQuestions) == len(fileHandler.usedQuestions) {
 		return -1, "All Questions used! Please reset or choose new file"
 	}
 	for {
-		i := rand.Intn(len(fileHandler.allQuestions) - 1) + 1
+		i := rand.Intn(len(fileHandler.allQuestions)-1) + 1
 		if _, exists := fileHandler.usedQuestions[i]; !exists {
 			fileHandler.usedQuestions[i] = true
 			fileHandler.numUsed++
@@ -78,6 +82,7 @@ func (fileHandler *FileHandler) RandomQuestion() (int, string) {
 	}
 }
 
+// GetFeedback provodes feedback based on the provided user answer
 func (fileHandler *FileHandler) GetFeedback(id int, answer string) string {
 	if id > 0 {
 		correctAnswer := fileHandler.allAnswers[id]
