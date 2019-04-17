@@ -1,0 +1,6 @@
+.gotron/
+.gotron-builder
+.idea/
+dist/
+gotron-builder-amd64-darwin
+data/

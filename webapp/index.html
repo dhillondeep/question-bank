@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/styling.css" media="screen"/>
+    <script type="text/javascript" src="js/script.js"></script>
+</head>
+<body>
+<div class="main left">
+    <p id="question_data"></p>
+</div>
+<div class="main right">
+    <input type="file"
+           id="fileToLoad" onchange="readTextFile(); this.value=null; return false;"
+           accept=".txt">
+    <br>
+    <br>
+    <button type="button" onclick="resetQuestions()">Reset Questions</button>
+    <button type="button" onclick="showRandom()">Show Random</button>
+    <br>
+    <br>
+    <label>Answer:</label><label for="question_answer"></label><input type="text" id="question_answer"><br>
+    <br>
+    <button type="button" onclick="checkAnswer()">Check Answer</button>
+    <hr>
+    <p id="feedback"></p>
+    <br>
+    <br>
+
+    <p>Attempted: </p><p id="attempted_questions">0</p>
+    <br>
+    <p>Correct: </p><p id="correct_questions">0</p>
+
+    <br>
+    <br>
+    <p>Total Questions: </p><p id="total_questions">0</p>
+    <br>
+    <p>Questions Used: </p><p id="used_questions">0</p>
+
+</div>
+</body>
+</html>
